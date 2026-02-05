@@ -63,6 +63,7 @@ button {
     border:none;
     border-radius:30px;
     cursor:pointer;
+    transition: all 0.3s ease;
 }
 
 #yesBtn {
@@ -87,7 +88,7 @@ button {
 <body>
 
 <div class="container">
-    <h1> Swati Will you go on a Himalayan trek with me? 🏔️</h1>
+    <h1>Will you go on a Himalayan trek with me? 🏔️</h1>
     <p>
         Cold air, warm chai, endless trails,<br>
         and memories we will never forget.
@@ -106,16 +107,21 @@ const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
 const msg = document.getElementById("finalMessage");
 
+let yesScale = 1;
+
 // YES clicked
 yesBtn.addEventListener("click", () => {
     msg.textContent = "See, I knew you wanted to go together 🏔️💚";
     msg.style.display = "block";
 });
 
-// NO clicked
+// NO clicked → grow YES button 😄
 noBtn.addEventListener("click", () => {
     msg.textContent = "But please, let us go together 🤍🥾";
     msg.style.display = "block";
+
+    yesScale += 0.3;  
+    yesBtn.style.transform = `scale(${yesScale})`;
 });
 
 // floating mountains animation
