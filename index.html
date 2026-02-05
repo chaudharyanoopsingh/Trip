@@ -18,7 +18,7 @@ body {
     overflow:hidden;
 }
 
-/* floating mountains emoji */
+/* floating mountains */
 .mountain {
     position:absolute;
     bottom:-40px;
@@ -52,8 +52,9 @@ p {
 }
 
 .buttons {
-    position:relative;
-    height:90px;
+    display:flex;
+    justify-content:center;
+    gap:20px;
 }
 
 button {
@@ -72,8 +73,6 @@ button {
 
 #noBtn {
     background:#eee;
-    position:absolute;
-    left:150px;
 }
 
 .message {
@@ -90,35 +89,32 @@ button {
 <div class="container">
     <h1>Will you go on a Himalayan trek with me? 🏔️</h1>
     <p>
-        Imagine sunrise in the mountains, cold air, hot chai,<br>
-        and us watching the clouds together…
+        Cold air, warm chai, endless trails,<br>
+        and memories we will never forget.
     </p>
 
     <div class="buttons">
         <button id="yesBtn">Yes! Let's go 🥾</button>
-        <button id="noBtn">No 😶</button>
+        <button id="noBtn">No 🤍</button>
     </div>
 
-    <div class="message" id="finalMessage">
-        Yayyy! Adventure partner confirmed 💚🏔️
-    </div>
+    <div class="message" id="finalMessage"></div>
 </div>
 
 <script>
-const noBtn = document.getElementById("noBtn");
 const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
 const msg = document.getElementById("finalMessage");
-
-// Runaway NO button 😆
-noBtn.addEventListener("mouseover", () => {
-    const x = Math.random() * (window.innerWidth - 120);
-    const y = Math.random() * (window.innerHeight - 80);
-    noBtn.style.left = x + "px";
-    noBtn.style.top = y + "px";
-});
 
 // YES clicked
 yesBtn.addEventListener("click", () => {
+    msg.textContent = "See, I knew you wanted to go together 🏔️💚";
+    msg.style.display = "block";
+});
+
+// NO clicked
+noBtn.addEventListener("click", () => {
+    msg.textContent = "But please, let us go together 🤍🥾";
     msg.style.display = "block";
 });
 
